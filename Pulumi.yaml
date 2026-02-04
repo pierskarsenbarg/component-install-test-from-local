@@ -1,0 +1,13 @@
+name: component-install-from-local
+description: testing speed of component installs from local
+runtime:
+  name: python
+  options:
+    toolchain: uv
+    virtualenv: .venv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: python
+packages:
+  storage: ../local-component
