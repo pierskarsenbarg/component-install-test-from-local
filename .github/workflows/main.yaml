@@ -1,0 +1,27 @@
+name: Install component from local disk
+
+on:
+    workflow_dispatch
+
+jobs:
+    do-install:
+        runs-on: ubuntu-latest
+        name: Do the install
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v6
+            - name: Checkout component repo locally
+              uses: actions/checkout@v6
+              with:
+                repository: pierskarsenbarg/storage
+                path: ../local-component
+            - name: Install UV
+              uses: astral-sh/setup-uv@v7
+            - name: Install Pulumi
+              uses: pulumi/actions@v6
+              with: 
+                pulumi-version: "v3.218.0"
+            - name: Run pulumi about
+              run: pulumi about
+            - name: Run pulumi install
+              run: pulumi install
