@@ -10,11 +10,13 @@ jobs:
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v6
+              with:
+                path: ./repo
             - name: Checkout component repo locally
               uses: actions/checkout@v6
               with:
                 repository: pierskarsenbarg/storage
-                path: ../local-component
+                path: ./local-component
             - name: Install UV
               uses: astral-sh/setup-uv@v7
             - name: Install Pulumi
@@ -23,5 +25,7 @@ jobs:
                 pulumi-version: "v3.218.0"
             - name: Run pulumi about
               run: pulumi about
+              working-directory: ./repo
             - name: Run pulumi install
               run: pulumi install
+              working-directory: ./repo
