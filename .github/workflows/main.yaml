@@ -5,7 +5,7 @@ on:
 
 jobs:
     do-install:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         name: Do the install
         steps:
             - name: Checkout Repo
@@ -17,6 +17,8 @@ jobs:
               with:
                 repository: pierskarsenbarg/storage
                 path: ./local-component
+            - name: Setup Python
+              uses: actions/setup-python@v6
             - name: Install UV
               uses: astral-sh/setup-uv@v7
             - name: Install Pulumi
