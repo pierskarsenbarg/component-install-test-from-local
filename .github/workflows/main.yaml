@@ -4,9 +4,9 @@ on:
     workflow_dispatch
 
 jobs:
-    do-install:
+    do-install-local:
         runs-on: self-hosted
-        name: Do the install
+        name: Do the install locally
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v6
