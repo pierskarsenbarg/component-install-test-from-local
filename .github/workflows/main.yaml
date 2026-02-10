@@ -24,10 +24,17 @@ jobs:
             - name: Install Pulumi
               uses: pulumi/actions@v6
               with: 
-                pulumi-version: "v3.207.0"
+                pulumi-version: "v3.208.0"
             - name: Run pulumi about
               run: pulumi about
               working-directory: ./repo
             - name: Run pulumi install
               run: pulumi install
               working-directory: ./repo
+            - name: Pulumi Auth
+              uses: pulumi/auth-actions@v1
+              with:
+                organization: demo
+                requested-token-type: urn:pulumi:token-type:access_token:personal
+            - name: Pulumi Preview
+              run: pulumi preview -s demo/dev
