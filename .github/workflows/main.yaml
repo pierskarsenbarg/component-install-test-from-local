@@ -41,4 +41,4 @@ jobs:
               run: pulumi install
               working-directory: ./repo
             - name: Pulumi Preview
-              run: pulumi preview -s demo/dev -c ./repo
+              run: pulumi preview -s demo/dev -C ./repo
