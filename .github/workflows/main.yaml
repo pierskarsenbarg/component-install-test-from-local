@@ -14,7 +14,7 @@ jobs:
             - name: Pulumi Auth
               uses: pulumi/auth-actions@v1
               with:
-                organization: pierskarsenbarg
+                organization: demo
                 requested-token-type: urn:pulumi:token-type:access_token:personal
                 scope: user:pierskarsenbarg
             - name: Checkout Repo
@@ -41,4 +41,4 @@ jobs:
               run: pulumi install
               working-directory: ./repo
             - name: Pulumi Preview
-              run: pulumi preview -s dev
+              run: pulumi preview -s demo/dev
