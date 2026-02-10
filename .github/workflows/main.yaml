@@ -38,7 +38,6 @@ jobs:
               uses: pulumi/auth-actions@v1
               with:
                 organization: demo
-                requested-token-type: urn:pulumi:token-type:access_token:personal
-                scope: user:pierskarsenbarg
+                requested-token-type: urn:pulumi:token-type:access_token:organization
             - name: Pulumi Preview
               run: pulumi preview -s demo/dev
