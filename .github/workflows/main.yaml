@@ -3,6 +3,9 @@ name: Install component from local disk
 on:
     workflow_dispatch
 
+permissions:
+  id-token: write
+
 jobs:
     do-install-local:
         runs-on: ubuntu-latest
